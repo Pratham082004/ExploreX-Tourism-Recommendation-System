@@ -1,3 +1,7 @@
+"""
+Defines health check and home API route.
+"""
+
 from flask import blueprint
 
 from controller.health_controller import(
