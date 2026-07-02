@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+
+  mysql:
+
+    build:
+      context: ./mysql-db
+      dockerfile: Dockerfile
+
+    container_name: tourism-mysql
+
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tourism_db
+      MYSQL_USER: tourism_user
+      MYSQL_PASSWORD: tourism_password
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+    networks:
+      - tourism-network
+
+volumes:
+  mysql_data:
+
+networks:
+  tourism-network:
+    driver: bridge
