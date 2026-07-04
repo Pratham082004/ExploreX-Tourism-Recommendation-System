@@ -1,0 +1,50 @@
+@reference "../../styles/global.css";
+
+.package-card {
+    @apply bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col relative;
+}
+.package-card-gradient {
+    @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-500 to-blue-500 opacity-0 transition-opacity;
+}
+.package-card:hover .package-card-gradient {
+    @apply opacity-100;
+}
+.package-card-content {
+    @apply p-6 flex-grow flex flex-col;
+}
+.package-card-header {
+    @apply flex justify-between items-start mb-4;
+}
+.package-card-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium bg-pink-500/10 text-pink-500;
+}
+.package-card-price {
+    @apply text-lg font-bold text-slate-800;
+}
+.package-card-title {
+    @apply text-xl font-bold text-slate-900 mb-2 leading-snug transition-colors line-clamp-2;
+}
+.package-card:hover .package-card-title {
+    @apply text-blue-500;
+}
+.package-card-dest {
+    @apply text-slate-500 text-sm flex items-center gap-1.5 mb-4;
+}
+.package-card-dest-icon {
+    @apply w-4 h-4;
+}
+.package-card-meta {
+    @apply grid grid-cols-2 gap-3 mt-auto mb-6;
+}
+.package-card-meta-item {
+    @apply flex items-center gap-2 text-sm text-slate-600 bg-slate-50 p-2 rounded-lg truncate;
+}
+.package-card-meta-icon {
+    @apply w-4 h-4 text-slate-400;
+}
+.package-card-btn {
+    @apply mt-auto w-full inline-flex justify-center items-center px-4 py-2.5 text-sm font-semibold rounded-xl text-blue-500 bg-blue-500/10 hover:bg-blue-500 hover:text-white transition-colors;
+}
+.package-card-btn-icon {
+    @apply w-4 h-4 ml-1.5;
+}

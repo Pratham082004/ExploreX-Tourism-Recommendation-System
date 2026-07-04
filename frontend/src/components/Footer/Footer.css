@@ -1,7 +1,49 @@
-.footer{
-    margin-top: 50px;
-    background: #222;
-    color: white;
-    text-align: center;
-    padding: 20px;
+@reference "../../styles/global.css";
+
+.footer-container {
+    @apply bg-slate-50 border-t border-slate-200 pt-16 pb-8 mt-20;
+}
+
+.footer-content {
+    @apply max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12;
+}
+
+.footer-brand {
+    @apply lg:col-span-2 flex flex-col items-start;
+}
+
+.footer-logo {
+    @apply flex items-center gap-2 mb-4;
+}
+
+.footer-logo-text {
+    @apply text-2xl font-extrabold text-slate-800 tracking-tight;
+}
+
+.footer-desc {
+    @apply text-slate-500 leading-relaxed max-w-sm;
+}
+
+.footer-heading {
+    @apply text-lg font-bold text-slate-800 mb-6;
+}
+
+.footer-links {
+    @apply flex flex-col gap-3;
+}
+
+.footer-links li a {
+    @apply text-slate-500 font-medium hover:text-blue-500 transition-colors;
+}
+
+.footer-socials {
+    @apply flex gap-4;
+}
+
+.footer-social-icon {
+    @apply w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-pink-500 hover:border-pink-200 hover:shadow-md hover:shadow-pink-500/10 transition-all;
+}
+
+.footer-bottom {
+    @apply max-w-7xl mx-auto px-6 md:px-12 pt-8 border-t border-slate-200 text-center text-slate-500 text-sm font-medium;
 }

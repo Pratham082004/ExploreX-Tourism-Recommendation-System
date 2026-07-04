@@ -1,0 +1,107 @@
+@reference "../../styles/global.css";
+
+.package-details-container {
+    @apply bg-white rounded-[2.5rem] shadow-[0_8px_40px_rgba(0,0,0,0.03)] border border-slate-100 p-6 md:p-10 lg:p-12 relative overflow-hidden;
+}
+.package-details-gradient {
+    @apply absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-pink-500 to-blue-500;
+}
+.package-details-empty {
+    @apply text-center py-20 text-slate-500 font-medium;
+}
+.package-details-title {
+    @apply text-3xl md:text-4xl font-extrabold text-slate-900 mb-6;
+}
+.package-details-stats-grid {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-4 mb-10;
+}
+.package-details-stat-card {
+    @apply bg-slate-50 rounded-2xl p-4 border border-slate-100 flex flex-col items-center justify-center text-center;
+}
+.package-details-stat-label {
+    @apply text-sm font-medium text-slate-500 mb-1;
+}
+.package-details-stat-value {
+    @apply text-lg font-bold text-slate-800;
+}
+.package-details-stat-value-blue {
+    @apply text-lg font-bold text-blue-500;
+}
+.package-details-stat-value-pink {
+    @apply text-lg font-bold text-pink-500;
+}
+.package-details-stat-rating {
+    @apply text-lg font-bold text-slate-800 flex items-center gap-1;
+}
+.package-details-star-icon {
+    @apply w-5 h-5 text-yellow-400;
+}
+.package-details-info-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-8 mb-10;
+}
+.package-details-info-col {
+    @apply space-y-4;
+}
+.package-details-info-title {
+    @apply text-xl font-bold text-slate-800 flex items-center gap-2;
+}
+.package-details-info-icon-pink {
+    @apply w-5 h-5 text-pink-500;
+}
+.package-details-info-icon-blue {
+    @apply w-5 h-5 text-blue-500;
+}
+.package-details-info-badge {
+    @apply text-slate-600 font-medium bg-slate-50 inline-block px-4 py-2 rounded-lg;
+}
+.package-details-section {
+    @apply mb-10;
+}
+.package-details-section-title {
+    @apply text-xl font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100 flex items-center gap-2;
+}
+.package-details-list-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3;
+}
+.package-details-list-grid-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-3;
+}
+.package-details-activity-item {
+    @apply flex items-start gap-2 text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-100;
+}
+.package-details-activity-icon {
+    @apply w-5 h-5 text-blue-500 shrink-0;
+}
+.package-details-empty-text {
+    @apply text-slate-500 italic;
+}
+.package-details-attraction-item {
+    @apply flex items-center gap-3 text-slate-700 font-medium bg-slate-50 px-4 py-3 rounded-xl border border-slate-100;
+}
+.package-details-attraction-dot {
+    @apply w-2 h-2 rounded-full bg-pink-500 shrink-0;
+}
+.package-details-nearby-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4;
+}
+.package-details-nearby-card {
+    @apply bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-blue-500/30 transition-colors;
+}
+.package-details-nearby-title {
+    @apply text-slate-800 block mb-1 truncate;
+}
+.package-details-nearby-badge {
+    @apply text-xs font-semibold text-blue-500 bg-blue-500/10 px-2 py-1 rounded;
+}
+.package-details-desc-box {
+    @apply bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 md:p-8 border border-slate-100 shadow-inner;
+}
+.package-details-desc-title {
+    @apply text-xl font-bold text-slate-800 mb-4 flex items-center gap-2;
+}
+.package-details-desc-icon {
+    @apply w-5 h-5 text-slate-400;
+}
+.package-details-desc-text {
+    @apply text-slate-600 leading-relaxed whitespace-pre-line;
+}
