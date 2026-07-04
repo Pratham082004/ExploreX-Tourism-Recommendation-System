@@ -11,6 +11,7 @@ from controller.package_controller import (
     Package_Controller,
 )
 
+""" Initialise the blueprint for the package module. """
 package_bp = Blueprint(
     "packages",
     __name__,
@@ -19,11 +20,8 @@ package_bp = Blueprint(
 
 """ Domestic Package Routes """
 package_bp.route("/domestic", methods=["GET"])(Package_Controller.get_all_domestic_packages)
-package_bp.route("/domestic/<int:package_id>", methods=["GET"])(Package_Controller.get_domestic_package_by_id)
-package_bp.route("/domestic/duration/<int:duration>", methods=["GET"])(Package_Controller.get_domestic_package_by_duration)
+package_bp.route("/domestic/<string:package_id>", methods=["GET"])(Package_Controller.get_domestic_package_by_id)
 
 """ International Package Routes """
 package_bp.route("/international", methods=["GET"])(Package_Controller.get_all_international_packages)
-package_bp.route("/international/<int:package_id>", methods=["GET"])(Package_Controller.get_international_package_by_id)
-package_bp.route("/international/duration/<int:duration>", methods=["GET"])(Package_Controller.get_international_package_by_duration)
-package_bp.route("/international/country/<string:country>", methods=["GET"])(Package_Controller.get_international_package_by_country)
+package_bp.route("/international/<string:package_id>", methods=["GET"])(Package_Controller.get_international_package_by_id)
