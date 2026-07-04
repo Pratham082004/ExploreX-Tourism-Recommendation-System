@@ -4,6 +4,8 @@ from database.connection import db
 
 class Domestic_Package(db.Model):
     __tablename__ = 'domestic_packages'
+    
+    __table_args__ = {'extend_existing': True}
 
     package_id = db.Column(db.String(20), primary_key=True)
     package_name = db.Column(db.String(255), nullable=False)
@@ -28,10 +30,11 @@ class Domestic_Package(db.Model):
     updated_at = db.Column(
         db.DateTime,
         server_default=db.func.current_timestamp(),
-        server_on_update=db.func.current_timestamp()
+        onupdate=db.func.current_timestamp()
     )
 
     def to_dict(self):
+        """Converts model attributes into a serializable dictionary format."""
         return {
             "package_id": self.package_id,
             "package_name": self.package_name,
@@ -56,6 +59,8 @@ class Domestic_Package(db.Model):
 
 class International_Package(db.Model):
     __tablename__ = 'international_packages'
+    
+    __table_args__ = {'extend_existing': True}
 
     package_id = db.Column(db.String(20), primary_key=True)
     package_name = db.Column(db.String(255), nullable=False)
@@ -80,10 +85,11 @@ class International_Package(db.Model):
     updated_at = db.Column(
         db.DateTime,
         server_default=db.func.current_timestamp(),
-        server_on_update=db.func.current_timestamp()
+        onupdate=db.func.current_timestamp()
     )
 
     def to_dict(self):
+        """Converts model attributes into a serializable dictionary format."""
         return {
             "package_id": self.package_id,
             "package_name": self.package_name,
@@ -102,4 +108,3 @@ class International_Package(db.Model):
             "created_at": self.created_at,
             "updated_at": self.updated_at
         }
-
