@@ -12,14 +12,8 @@ function Navbar(){
                 {/* Logo Section */}
                 <Link to="/" className="navbar-logo-link group">
                     <div className="navbar-logo-icon">
-                        {/* A palm tree icon */}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M14 6l-2-2-2 2-1 4h6z"/>
-                            <path d="M12 10v12"/>
-                            <path d="M22 20H2"/>
-                            <path d="M15 15l4-2"/>
-                            <path d="M9 15l-4-2"/>
-                        </svg>
+                        {/* ExploreX logo */}
+                        <img src="/favicon.svg" alt="ExploreX Logo" className="w-10 h-10 drop-shadow-[0_0_10px_rgba(171,0,255,0.4)]" />
                     </div>
                     <div className="flex flex-col">
                         <span className="navbar-logo-text">ExploreX</span>

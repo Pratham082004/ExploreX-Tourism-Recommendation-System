@@ -1,11 +1,15 @@
 @reference "../../styles/global.css";
 
 .footer-container {
-    @apply bg-slate-50 border-t border-slate-200 pt-16 pb-8 mt-20;
+    @apply relative bg-gradient-to-b from-white to-slate-50 border-t border-slate-100 pt-16 pb-8 mt-20 overflow-hidden;
+}
+
+.footer-container::before {
+    @apply content-[''] absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 opacity-50;
 }
 
 .footer-content {
-    @apply max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12;
+    @apply max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 relative z-10;
 }
 
 .footer-brand {
@@ -17,7 +21,7 @@
 }
 
 .footer-logo-text {
-    @apply text-2xl font-extrabold text-slate-800 tracking-tight;
+    @apply text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#0d2a58] to-[#8025ff] tracking-tight;
 }
 
 .footer-desc {
@@ -25,7 +29,7 @@
 }
 
 .footer-heading {
-    @apply text-lg font-bold text-slate-800 mb-6;
+    @apply text-lg font-extrabold text-[#0d2a58] mb-6;
 }
 
 .footer-links {
@@ -33,7 +37,7 @@
 }
 
 .footer-links li a {
-    @apply text-slate-500 font-medium hover:text-blue-500 transition-colors;
+    @apply text-slate-500 font-medium hover:text-[#8025ff] transition-all hover:translate-x-1 inline-block;
 }
 
 .footer-socials {
@@ -41,9 +45,9 @@
 }
 
 .footer-social-icon {
-    @apply w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-pink-500 hover:border-pink-200 hover:shadow-md hover:shadow-pink-500/10 transition-all;
+    @apply w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:border-transparent hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 hover:-translate-y-1;
 }
 
 .footer-bottom {
-    @apply max-w-7xl mx-auto px-6 md:px-12 pt-8 border-t border-slate-200 text-center text-slate-500 text-sm font-medium;
+    @apply max-w-7xl mx-auto px-6 md:px-12 pt-8 border-t border-slate-200 text-center text-slate-500 text-sm font-medium relative z-10;
 }
