@@ -1,7 +1,5 @@
 FROM mysql:8.4
 
-WORKDIR /docker-entrypoint-initdb.d
-
-COPY init/ /docker-entrypoint-initdb.d/
+COPY init/schema.sql /docker-entrypoint-initdb.d/schema.sql
 
 EXPOSE 3306
