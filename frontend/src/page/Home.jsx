@@ -203,7 +203,9 @@ function Home(){
                             </div>
                             <p className="review-text">"{item.review}"</p>
                             <div className="review-author">
-                                <img src={item.avatar} alt={item.name} className="review-avatar" />
+                                <div className="w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold text-xl bg-gradient-to-br from-[#8025ff] to-[#ec4899] shadow-md border-2 border-white">
+                                    {item.name.charAt(0)}
+                                </div>
                                 <div>
                                     <h4 className="review-name">{item.name}</h4>
                                     <p className="review-role">{item.role}</p>
