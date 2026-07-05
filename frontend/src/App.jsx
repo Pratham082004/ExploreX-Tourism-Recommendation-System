@@ -7,10 +7,13 @@ import Home from "./page/Home";
 import Recommendation from "./page/Recommendation";
 import Package from "./page/Package";
 import About from "./page/About";
-import Contact from "./page/Contact";
 import NotFound from "./page/NotFound";
 import Recommendations from "./page/Recommendations";
 
+/**
+ * Main application component that sets up routing for the entire app.
+ * It wraps the main content with Navbar and Footer components.
+ */
 function App(){
   return(
     <>
@@ -26,7 +29,6 @@ function App(){
 
                 <Route path="/recommendations" element={<Recommendations />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
