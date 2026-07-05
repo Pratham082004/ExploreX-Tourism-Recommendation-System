@@ -1,5 +1,9 @@
 import '../styles/About.css';
 
+/**
+ * The About Us page.
+ * Tells the story of ExploreX, its mission, services, and the technology stack.
+ */
 function About() {
     return (
         <div className="about-container">
@@ -12,7 +16,7 @@ function About() {
                     <span className="w-6 h-[1px] bg-pink-500"></span>
                 </p>
                 <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">
-                    About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">WanderMatch</span>
+                    About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">ExploreX</span>
                 </h1>
                 <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
                     Your trusted travel companion for discovering personalized travel experiences across domestic and international destinations.

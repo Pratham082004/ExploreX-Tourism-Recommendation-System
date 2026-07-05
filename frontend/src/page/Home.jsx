@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import "../styles/Home.css";
 import AnimatedNumber from "../components/AnimatedNumber/AnimatedNumber";
 
+/**
+ * The landing page of the application.
+ * Highlights key features, statistics, and user testimonials to welcome visitors.
+ */
 function Home(){
     return (
         <div className="home-container">
@@ -110,7 +114,7 @@ function Home(){
                         <span className="w-6 h-[1px] bg-pink-500"></span>
                     </p>
                     <h2 className="features-title">
-                        Why Travelers Love WanderMatch
+                        Why Travelers Love ExploreX
                         <svg className="inline-block ml-2 w-8 h-8 text-pink-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                     </h2>
                     <p className="features-subtitle">We make travel planning effortless and memorable.</p>
@@ -175,7 +179,7 @@ function Home(){
                         {
                             name: "Sarah Jenkins",
                             role: "Solo Traveler",
-                            review: "WanderMatch made my trip to Bali absolutely incredible. The AI recommendations were spot on and I saved so much time planning!",
+                            review: "ExploreX made my trip to Bali absolutely incredible. The AI recommendations were spot on and I saved so much time planning!",
                             avatar: "https://i.pravatar.cc/150?img=47"
                         },
                         {

@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
 
+/**
+ * A custom 404 error page.
+ * Displayed when a user navigates to a route that does not exist.
+ */
 function NotFound() {
     return (
         <div className="flex flex-col items-center justify-center py-20 text-center w-full min-h-[60vh]">

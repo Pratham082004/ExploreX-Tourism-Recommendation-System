@@ -7,6 +7,11 @@ import Loading from "../components/Loading/Loading";
 import packageService from "../services/packageService";
 import attractionService from "../services/attractionService";
 
+/**
+ * The dedicated page for viewing a single travel package's details.
+ * Fetches the package data and nearby attractions based on the URL ID,
+ * and passes them to the PackageDetails component.
+ */
 function Package() {
 
     const { id } = useParams();
@@ -39,13 +44,23 @@ function Package() {
 
             setPackageData(data);
 
+            const firstCity = data.cities_covered 
+                ? data.cities_covered.split(',')[0].trim() 
+                : data.country;
+
             const attractionResponse =
                 await attractionService.getNearbyAttractions(
-                    data.country
+                    firstCity
                 );
 
-            if (attractionResponse.success) {
-                setAttractions(attractionResponse.data);
+            if (attractionResponse) {
+                if (Array.isArray(attractionResponse)) {
+                    setAttractions(attractionResponse);
+                } else if (attractionResponse.success && Array.isArray(attractionResponse.data)) {
+                    setAttractions(attractionResponse.data);
+                } else if (Array.isArray(attractionResponse.data)) {
+                    setAttractions(attractionResponse.data);
+                }
             }
 
         } catch (error) {

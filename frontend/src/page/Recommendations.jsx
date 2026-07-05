@@ -2,6 +2,10 @@ import { useLocation } from "react-router-dom";
 import PackageCard from "../components/PackageCard/PackageCard";
 import "../styles/Recommendations.css";
 
+/**
+ * The results page that displays a list of recommended travel packages.
+ * Receives the recommendations data from the router state and maps them to PackageCard components.
+ */
 function Recommendations() {
 
     const location = useLocation();
