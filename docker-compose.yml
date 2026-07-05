@@ -1,9 +1,6 @@
-version: "3.9"
-
 services:
 
   mysql:
-
     build:
       context: ./mysql-db
       dockerfile: Dockerfile
@@ -12,11 +9,8 @@ services:
 
     restart: unless-stopped
 
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: tourism_db
-      MYSQL_USER: tourism_user
-      MYSQL_PASSWORD: tourism_password
+    env_file:
+      - ./mysql-db/.env
 
     ports:
       - "3306:3306"
@@ -27,8 +21,59 @@ services:
     networks:
       - tourism-network
 
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "tourism_user", "-ptourism123"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
+    container_name: tourism-backend
+
+    restart: unless-stopped
+
+    env_file:
+      - ./backend/.env
+
+    ports:
+      - "5000:5000"
+
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+    networks:
+      - tourism-network
+
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+
+    container_name: tourism-frontend
+
+    restart: unless-stopped
+
+    ports:
+      - "5173:5173"
+
+    depends_on:
+      - backend
+
+    networks:
+      - tourism-network
+
+
 volumes:
   mysql_data:
+
 
 networks:
   tourism-network:
