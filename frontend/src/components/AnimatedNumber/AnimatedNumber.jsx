@@ -1,5 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 
+/**
+ * A component that animates a number counting up to a target value.
+ * Perfect for showing statistics or metrics with a nice visual effect.
+ *
+ * @param {number} end - The target number to count up to.
+ * @param {number} [duration=2000] - How long the animation should take in milliseconds.
+ * @param {string} [suffix=''] - Text to append after the number (like '%', 'k').
+ * @param {string} [prefix=''] - Text to prepend before the number (like '$').
+ * @param {number} [decimals=0] - Number of decimal places to show.
+ */
 function AnimatedNumber({ end, duration = 2000, suffix = '', prefix = '', decimals = 0 }) {
     const [count, setCount] = useState(0);
     const [hasAnimated, setHasAnimated] = useState(false);

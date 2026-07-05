@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 import "./PackageCard.css";
 
+/**
+ * A card component that displays a summary of a travel package.
+ * Shows key details like destination, price, duration, and hotel category.
+ * Clicking it takes the user to the full package details page.
+ *
+ * @param {Object} packageData - The travel package information to display.
+ */
 function PackageCard({ packageData }) {
     const isDomestic = packageData.package_id.startsWith("IND");
 

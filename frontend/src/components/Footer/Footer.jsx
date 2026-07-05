@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import "./Footer.css";
 
+/**
+ * The standard footer displayed at the bottom of all pages.
+ * Contains branding, quick links, and social media icons.
+ */
 function Footer(){
     return(
         <footer className="footer-container">
@@ -14,9 +18,9 @@ function Footer(){
                             <path d="M15 15l4-2"/>
                             <path d="M9 15l-4-2"/>
                         </svg>
-                        <span className="footer-logo-text">WanderMatch</span>
+                        <span className="footer-logo-text">ExploreX</span>
                     </Link>
-                    <p className="footer-desc">Your ultimate AI-powered travel planner. Discover personalized experiences across the globe tailored just for you.</p>
+                    <p className="footer-desc">Your ultimate AI-powered travel recommender. Discover personalized experiences across the globe tailored just for you.</p>
                 </div>
                 
                 <div className="footer-links-group">
@@ -25,7 +29,6 @@ function Footer(){
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/recommendation">Plan Trip</Link></li>
                         <li><Link to="/about">About Us</Link></li>
-                        <li><Link to="/contact">Contact</Link></li>
                     </ul>
                 </div>
                 
@@ -46,7 +49,7 @@ function Footer(){
             </div>
             
             <div className="footer-bottom">
-                <p>© 2026 WanderMatch. All rights reserved.</p>
+                <p>© 2026 ExploreX. All rights reserved.</p>
             </div>
         </footer>
     );

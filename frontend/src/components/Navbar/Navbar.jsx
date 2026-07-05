@@ -1,6 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 
+/**
+ * The top navigation bar of the application.
+ * Contains the logo and links to main pages like Home, Plan Trip, and About Us.
+ */
 function Navbar(){
     return(
         <header className="navbar-header">
@@ -18,8 +22,8 @@ function Navbar(){
                         </svg>
                     </div>
                     <div className="flex flex-col">
-                        <span className="navbar-logo-text">WanderMatch</span>
-                        <span className="text-[10px] text-slate-500 font-medium -mt-1 tracking-wide">AI Travel Planner</span>
+                        <span className="navbar-logo-text">ExploreX</span>
+                        <span className="text-[10px] text-slate-500 font-medium -mt-1 tracking-wide">AI Travel Recommender</span>
                     </div>
                 </Link>
 
@@ -40,11 +44,6 @@ function Navbar(){
                         <li>
                             <NavLink to="/about" className={({isActive}) => isActive ? 'navbar-link-active' : 'navbar-link'}>
                                 About Us
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/contact" className={({isActive}) => isActive ? 'navbar-link-active' : 'navbar-link'}>
-                                Contact
                             </NavLink>
                         </li>
                     </ul>

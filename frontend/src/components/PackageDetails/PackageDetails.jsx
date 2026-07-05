@@ -1,5 +1,12 @@
 import "./PackageDetails.css";
 
+/**
+ * Displays the complete details of a selected travel package.
+ * Shows destination stats, major attractions, nearby places, and full itinerary.
+ *
+ * @param {Object} packageData - The main details of the travel package.
+ * @param {Array} attractions - A list of nearby attractions for this package.
+ */
 function PackageDetails({ packageData, attractions }) {
 
     if (!packageData) {
@@ -31,7 +38,7 @@ function PackageDetails({ packageData, attractions }) {
                 </div>
                 <div className="package-details-stat-card">
                     <span className="package-details-stat-label">Duration</span>
-                    <span className="package-details-stat-value">{packageData.duration} Days</span>
+                    <span className="package-details-stat-value">{packageData.duration}</span>
                 </div>
                 <div className="package-details-stat-card">
                     <span className="package-details-stat-label">Cost</span>
@@ -65,25 +72,6 @@ function PackageDetails({ packageData, attractions }) {
 
             <div className="package-details-section">
                 <h3 className="package-details-section-title">
-                    <svg className="package-details-info-icon-pink" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                    Included Activities
-                </h3>
-                <ul className="package-details-list-grid">
-                    {activities.length > 0 ? (
-                        activities.map((activity, index) => (
-                            <li key={index} className="package-details-activity-item">
-                                <svg className="package-details-activity-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                <span>{activity}</span>
-                            </li>
-                        ))
-                    ) : (
-                        <li className="package-details-empty-text">No activities available.</li>
-                    )}
-                </ul>
-            </div>
-
-            <div className="package-details-section">
-                <h3 className="package-details-section-title">
                     <svg className="package-details-info-icon-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                     Major Attractions
                 </h3>
@@ -112,7 +100,7 @@ function PackageDetails({ packageData, attractions }) {
                             <li key={place.xid} className="package-details-nearby-card">
                                 <strong className="package-details-nearby-title" title={place.name}>{place.name}</strong>
                                 <span className="package-details-nearby-badge">
-                                    {(place.dist / 1000).toFixed(1)} km away
+                                    {(place.distance_m / 1000).toFixed(1)} km away
                                 </span>
                             </li>
                         ))

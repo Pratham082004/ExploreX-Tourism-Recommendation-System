@@ -4,6 +4,11 @@ import { useNavigate } from "react-router-dom";
 import recommendationService from "../../services/recommendationService";
 import "./RecommendationForm.css";
 
+/**
+ * A comprehensive form where users input their travel preferences.
+ * Captures destination, budget, duration, package type, and preferred activities
+ * to fetch personalized travel recommendations from the backend.
+ */
 function RecommendationForm() {
     const navigate = useNavigate();
 

@@ -1,3 +1,7 @@
+/**
+ * A simple, animated loading spinner component.
+ * Use this to show a loading state while fetching data or performing heavy operations.
+ */
 function Loading() {
     return (
         <div className="flex flex-col items-center justify-center min-h-[50vh] w-full p-8">
