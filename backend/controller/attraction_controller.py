@@ -1,45 +1,43 @@
 """
-Controrller for handling tourist attraction operations.
+Controller for handling tourist attraction operations.
 
-It coordinate between incoming request and OpenTripMap API
-to look up for location data.
+Coordinates incoming requests with the OpenTripMap service
+to retrieve nearby tourist attractions.
 """
 
 from flask import request
-from services.opentripmap_service import Opentripmap_service
-from utils.responses import success_response, error_response
+
+from services.opentripmap_service import OpentripmapService
 from utils.logger import logger
+from utils.responses import error_response, success_response
 
 
-class attraction_controller:
+class AttractionController:
+    """Controller for attraction-related endpoints."""
 
     @staticmethod
     def fetch_attractions():
-        """ Function to retrieve nearby attractions for a specific city. """
+        """Retrieve nearby attractions for a given city."""
 
         try:
             city = request.args.get("city")
+
             logger.debug("fetch_attractions called city=%s", city)
+
             if not city:
-                return error_response("city is required.", 400)
-            
-            location = Opentripmap_service.fetch_cordinates(city)
+                return error_response("City is required.", 400)
 
+            location = OpentripmapService.fetch_coordinates(city)
 
-            attractions = Opentripmap_service.fetch_nearby_attaractions(
+            attractions = OpentripmapService.fetch_nearby_attractions(
                 location["lat"],
                 location["lon"]
             )
 
-            logger.info("Fetched attractions for city=%s", city)
-            return success_response("Attractions fetched sucessfully.", attractions)
+            logger.info("Fetched %d attractions for city=%s", len(attractions), city)
+
+            return success_response("Attractions fetched successfully.",attractions)
 
         except Exception as e:
             logger.exception("fetch_attractions failed")
             return error_response(str(e), 500)
-
-        
-
-        
-
-        

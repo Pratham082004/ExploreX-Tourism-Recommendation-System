@@ -1,9 +1,15 @@
-Flask 
-Flask-Cors 
-python-dotenv 
-gunicorn 
-requests 
+Flask
+Flask-Cors
+Flask-SQLAlchemy
 
-FLask-SQLAlchemy
-SQlAlchemy
+SQLAlchemy
 PyMySQL
+
+python-dotenv
+requests
+
+pandas
+numpy
+scikit-learn
+joblib
+logging
