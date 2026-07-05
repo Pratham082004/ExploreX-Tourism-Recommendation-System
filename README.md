@@ -1,49 +1,23 @@
-# 🌍 Tourism Recommendation System
+# Tourism Recommendation System
 
 A comprehensive, full-stack Tourism Recommendation System designed to provide personalized travel experiences, destination suggestions, and trip packages based on user preferences.
 
----
-
-## 🚀 Features
+## Features
 
 - **Intelligent Recommendations**: Machine learning-based suggestions powered by Scikit-learn.
-- **Interactive UI**: A modern, responsive user interface built with React, Vite, and Tailwind CSS.
+- **Interactive UI**: A modern, responsive user interface built with React, Vite, and Vanilla CSS.
 - **Robust Backend**: Fast and scalable RESTful API built with Flask.
 - **Relational Database**: Secure and structured data storage using MySQL and SQLAlchemy.
 - **Containerized**: Fully dockerized environment for seamless deployment and development.
 
----
-
-## 🛠️ Tech Stack
-
-### Frontend
-- **Framework**: React (Vite)
-- **Styling**: Tailwind CSS
-- **Routing**: React Router DOM
-- **HTTP Client**: Axios
-
-### Backend
-- **Framework**: Flask
-- **Database ORM**: Flask-SQLAlchemy / PyMySQL
-- **Machine Learning**: Pandas, NumPy, Scikit-learn, Joblib
-- **Utilities**: Python-dotenv, Requests
-
-### Infrastructure & Database
-- **Database**: MySQL
-- **Containerization**: Docker & Docker Compose
-
----
-
-## 📋 Prerequisites
+## Prerequisites
 
 Make sure you have the following installed on your local machine:
 - [Docker & Docker Compose](https://www.docker.com/products/docker-desktop/) (Recommended for easy setup)
 - [Node.js](https://nodejs.org/) (If running the frontend manually)
 - [Python 3.x](https://www.python.org/) (If running the backend manually)
 
----
-
-## 🏗️ Getting Started (Docker)
+## Getting Started (Docker)
 
 The easiest way to get the application running is by using Docker.
 
@@ -64,9 +38,9 @@ The easiest way to get the application running is by using Docker.
    - **Backend API:** http://localhost:5000
    - **Database (MySQL):** `localhost:3306`
 
----
+Navigate to http://localhost:5173 to view the application.
 
-## 💻 Manual Setup
+## Manual Setup
 
 If you prefer to run the system without Docker, follow these steps:
 
@@ -90,11 +64,9 @@ npm run dev
 ```
 Navigate to http://localhost:5173 to view the application.
 
----
+## Project Structure
 
-## 📂 Project Structure
-
-```
+```text
 Tourism-Recommendation-System/
 │
 ├── backend/                  # Flask backend & ML logic
@@ -121,11 +93,51 @@ Tourism-Recommendation-System/
 
 ---
 
-## 🤝 Contributing
+## Tech Stack
 
-Contributions, issues, and feature requests are welcome!
-Feel free to check out the [issues page](../../issues).
+Frontend: React (JavaScript dialect)  
+Backend: Flask (Python web framework for building APIs)  
+Database: MySQL (Relational Database to store our data)  
+Machine Learning: Scikit-learn (To provide intelligent recommendations)  
+Containerization Platform: Docker (To pack an application and all of its dependencies into a single unit called a container and run on any system that has Docker installed)  
 
-## 📝 License
+## Referred Sites
 
-This project is open-source and available under the [MIT License](LICENSE).
+https://react.dev/  
+https://flask.palletsprojects.com/  
+https://www.mysql.com/  
+https://www.docker.com/  
+https://scikit-learn.org/  
+https://vitejs.dev/  
+https://www.makemytrip.com/holidays-india/  
+https://www.thomascook.in/  
+
+## Dataset and Open-Source APIs Referred
+
+*(Note: The following datasets and APIs were used as references to create a dummy dataset for the database)*
+
+Kaggle Dataset : https://www.kaggle.com/datasets/dhrubangtalukdar/top-indian-places-to-visit-indian-tourism  
+Kaggle Dataset : https://www.kaggle.com/datasets/rkiattisak/traveler-trip-data/data  
+Open-Source API : https://dev.opentripmap.org/docs  
+
+## Tourism Recommendation System Screenshots
+
+### UI Screenshots
+![Recommendation Form](frontend/project_screenshots/RecommendationForm.png)  
+![Recommendation Form 3](frontend/project_screenshots/RecommendationForm3.png)  
+![Output Page 1](frontend/project_screenshots/OutputPage1.png)  
+![Output Page 2](frontend/project_screenshots/OutputPage2.png)  
+![Output Page 3](frontend/project_screenshots/OutputPage3.png)
+### Database Screenshots
+![MySQL 1](frontend/project_screenshots/Mysql1.png)  
+![MySQL 2](frontend/project_screenshots/Mysql2.png)
+### API Screenshots
+![Postman 1](frontend/project_screenshots/Postman1.png)  
+![Postman 2](frontend/project_screenshots/Postman2.png)  
+![Postman 3](frontend/project_screenshots/Postman3.png) 
+### Docker Screenshots
+![Docker Desktop 1](frontend/project_screenshots/DockerDesktop1.png)  
+![Docker Desktop 2](frontend/project_screenshots/DockerDesktop2.png)
+
+ 
+
