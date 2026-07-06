@@ -1,11 +1,9 @@
+import { FaStar, FaUserFriends, FaHotel, FaMountain, FaMapMarkerAlt } from "react-icons/fa";
 import "./PackageDetails.css";
 
 /**
- * Displays the complete details of a selected travel package.
- * Shows destination stats, major attractions, nearby places, and full itinerary.
- *
- * @param {Object} packageData - The main details of the travel package.
- * @param {Array} attractions - A list of nearby attractions for this package.
+ * Shows full details of a travel package.
+ * Includes destination stats, attractions, and nearby places.
  */
 function PackageDetails({ packageData, attractions }) {
 
@@ -13,11 +11,7 @@ function PackageDetails({ packageData, attractions }) {
         return <div className="package-details-empty">Package not found.</div>;
     }
 
-    const activities = Array.isArray(packageData.activity)
-        ? packageData.activity
-        : packageData.activity
-            ? packageData.activity.split(",").map(item => item.trim())
-            : [];
+
 
     const majorAttractions = Array.isArray(packageData.major_attractions)
         ? packageData.major_attractions
@@ -46,9 +40,7 @@ function PackageDetails({ packageData, attractions }) {
                 </div>
                 <div className="package-details-stat-card">
                     <span className="package-details-stat-label">Rating</span>
-                    <span className="package-details-stat-rating">
-                        <svg className="package-details-star-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        {packageData.rating}
+                    <span className="package-details-stat-rating"> <FaStar /> {packageData.rating}
                     </span>
                 </div>
             </div>
@@ -56,25 +48,18 @@ function PackageDetails({ packageData, attractions }) {
             <div className="package-details-info-grid">
                 <div className="package-details-info-col">
                     <h3 className="package-details-info-title">
-                        <svg className="package-details-info-icon-pink" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        Best For
+                        <FaUserFriends /> Best For
                     </h3>
                     <p className="package-details-info-badge">{packageData.best_for}</p>
                 </div>
                 <div className="package-details-info-col">
-                    <h3 className="package-details-info-title">
-                        <svg className="package-details-info-icon-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                        Hotel Category
-                    </h3>
+                    <h3 className="package-details-info-title"><FaHotel /> Hotel Category</h3>
                     <p className="package-details-info-badge">{packageData.hotel_category}</p>
                 </div>
             </div>
 
             <div className="package-details-section">
-                <h3 className="package-details-section-title">
-                    <svg className="package-details-info-icon-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                    Major Attractions
-                </h3>
+                <h3 className="package-details-section-title"><FaMountain /> Major Attractions</h3>
                 <ul className="package-details-list-grid-2">
                     {majorAttractions.length > 0 ? (
                         majorAttractions.map((attraction, index) => (
@@ -90,10 +75,7 @@ function PackageDetails({ packageData, attractions }) {
             </div>
 
             <div className="package-details-section">
-                <h3 className="package-details-section-title">
-                    <svg className="package-details-info-icon-pink" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    Nearby Attractions
-                </h3>
+                <h3 className="package-details-section-title"><FaMapMarkerAlt /> Nearby Attractions</h3>
                 <ul className="package-details-nearby-grid">
                     {attractions && attractions.length > 0 ? (
                         attractions.map((place) => (

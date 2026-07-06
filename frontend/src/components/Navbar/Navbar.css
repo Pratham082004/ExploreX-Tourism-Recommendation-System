@@ -1,38 +1,143 @@
-@reference "../../styles/global.css";
-
 .navbar-header {
-    @apply sticky top-0 z-50 bg-white/60 backdrop-blur-xl border-b border-white/40 shadow-[0_8px_32px_rgba(31,38,135,0.05)] transition-all duration-300;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
 }
+
 .navbar-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+@media (min-width: 640px) {
+  .navbar-container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar-container {
+    padding: 0 2rem;
+  }
+}
+
 .navbar-logo-link {
-    @apply flex items-center gap-3 relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
 }
+
 .navbar-logo-icon {
-    @apply flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
 }
+
+.navbar-logo-icon img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.navbar-logo-link:hover .navbar-logo-icon {
+  transform: scale(1.1) rotate(3deg);
+}
+
+.navbar-logo-col {
+  display: flex;
+  flex-direction: column;
+}
+
 .navbar-logo-text {
-    @apply text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#0d2a58] to-[#8025ff] tracking-tight;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  letter-spacing: -0.025em;
 }
+
+.navbar-logo-subtext {
+  font-size: 0.625rem;
+  color: #64748b;
+  font-weight: 500;
+  margin-top: -0.25rem;
+  letter-spacing: 0.025em;
+}
+
+.navbar-nav {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .navbar-nav {
+    display: block;
+  }
+}
+
 .navbar-list {
-    @apply flex items-center gap-8;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
+
 .navbar-link {
-    @apply text-[15px] font-bold text-slate-600 transition-all duration-300 hover:text-blue-500 relative after:content-[''] after:absolute after:w-0 after:h-[3px] after:bottom-[-6px] after:left-1/2 after:-translate-x-1/2 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full after:rounded-full;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #475569;
+  text-decoration: none;
+  transition: all 0.3s;
+  position: relative;
 }
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-color);
+  transition: all 0.3s;
+  border-radius: 9999px;
+}
+
+.navbar-link:hover {
+  color: var(--primary-color);
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
 .navbar-link-active {
-    @apply text-[15px] font-bold text-blue-500 relative after:content-[''] after:absolute after:w-full after:h-[3px] after:bottom-[-6px] after:left-1/2 after:-translate-x-1/2 after:bg-blue-500 after:rounded-full;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+  position: relative;
 }
-.navbar-action {
-    @apply flex items-center;
-}
-.btn-get-started {
-    @apply px-6 py-3 rounded-full text-[15px] font-bold text-white bg-gradient-to-r from-[#8025ff] to-[#ec4899] shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-purple-500/50 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden;
-}
-.btn-get-started::after {
-    @apply content-[''] absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-500 ease-in-out;
-}
-.btn-get-started:hover::after {
-    @apply left-[100%];
+
+.navbar-link-active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-color);
+  border-radius: 9999px;
 }

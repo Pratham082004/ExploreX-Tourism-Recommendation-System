@@ -1,13 +1,13 @@
 import { useState } from "react";
-import {DESTINATIONS, PACKAGE_TYPES, HOTEL_CATEGORIES, BEST_FOR, ACTIVITIES} from "../../utils/constants";
+import { DESTINATIONS, PACKAGE_TYPES, HOTEL_CATEGORIES, BEST_FOR, ACTIVITIES } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
 import recommendationService from "../../services/recommendationService";
+import { FaPlane, FaChevronDown, FaTimes, FaRocket } from "react-icons/fa";
 import "./RecommendationForm.css";
 
 /**
- * A comprehensive form where users input their travel preferences.
- * Captures destination, budget, duration, package type, and preferred activities
- * to fetch personalized travel recommendations from the backend.
+ * Main form for users to enter their travel preferences.
+ * Collects destination, budget, and activities, then fetches recommendations from the API.
  */
 function RecommendationForm() {
     const navigate = useNavigate();
@@ -21,14 +21,15 @@ function RecommendationForm() {
         best_for: "",
         hotel_category: "",
         activity: []
-        }
+    }
     );
 
-    const[activityInput, setActivityInput] = useState("");
+    const [activityInput, setActivityInput] = useState("");
 
-    const handleChange = (event) =>{
-        const {name, value} = event.target;
-        if (name === "destination_type"){
+    const handleChange = (event) => {
+        // Keep track of what the user is selecting
+        const { name, value } = event.target;
+        if (name === "destination_type") {
             setFormData((prev) => ({
                 ...prev,
                 destination_type: value,
@@ -45,16 +46,17 @@ function RecommendationForm() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        const { activity, ...restFormData } = formData;
+        // Collects the user's preferences and ask the backend for some travel ideas
         const payload = {
             user_preferences: {
-                ...formData,
+                ...restFormData,
                 destination: formData.country,
-                activities: formData.activity,
+                activities: activity,
                 budget: Number(formData.budget),
                 duration: Number(formData.duration)
             }
         };
-        delete payload.user_preferences.activity;
 
         try {
             const recommendations =
@@ -75,7 +77,8 @@ function RecommendationForm() {
     };
 
     const addActivity = (activity) => {
-        if(formData.activity.includes(activity)){
+        // Only add the activity if they haven't picked it already
+        if (formData.activity.includes(activity)) {
             return;
         }
         setFormData((prev) => ({
@@ -86,10 +89,11 @@ function RecommendationForm() {
     };
 
     const removeActivity = (activity) => {
+        // Toss out the activity if they changed their mind
         setFormData((prev) => ({
             ...prev,
             activity: prev.activity.filter((item) => item !== activity)
-    }))
+        }))
     }
 
     const filteredDestination = DESTINATIONS[formData.destination_type] || [];
@@ -106,7 +110,7 @@ function RecommendationForm() {
             <div className="form-top-gradient"></div>
 
             <h2 className="form-header">
-                <svg className="form-header-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+                <FaPlane className="form-header-icon" />
                 Travel Preferences
             </h2>
 
@@ -127,7 +131,7 @@ function RecommendationForm() {
                             <option value="International">International</option>
                         </select>
                         <div className="form-select-icon-wrapper">
-                            <svg className="form-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <FaChevronDown className="form-icon" />
                         </div>
                     </div>
                 </div>
@@ -136,7 +140,7 @@ function RecommendationForm() {
                 <div className="form-group">
                     <label className="form-label">Destination</label>
                     <div className="form-input-container">
-                        <select 
+                        <select
                             name="country"
                             value={formData.country}
                             onChange={handleChange}
@@ -144,13 +148,13 @@ function RecommendationForm() {
                             disabled={!formData.destination_type}
                             className="form-select"
                         >
-                            <option value = "">Select Your Prefered Destination</option>
+                            <option value="">Select Your Prefered Destination</option>
                             {filteredDestination.map((destination) => (
                                 <option key={destination} value={destination}>{destination}</option>
                             ))}
                         </select>
                         <div className="form-select-icon-wrapper">
-                            <svg className="form-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <FaChevronDown className="form-icon" />
                         </div>
                     </div>
                 </div>
@@ -201,10 +205,10 @@ function RecommendationForm() {
                             ))}
                         </select>
                         <div className="form-select-icon-wrapper">
-                            <svg className="form-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <FaChevronDown className="form-icon" />
                         </div>
                     </div>
-                </div> 
+                </div>
 
                 {/*User's Choose thier Package Type*/}
                 <div className="form-group">
@@ -223,7 +227,7 @@ function RecommendationForm() {
                             ))}
                         </select>
                         <div className="form-select-icon-wrapper">
-                            <svg className="form-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <FaChevronDown className="form-icon" />
                         </div>
                     </div>
                 </div>
@@ -232,7 +236,7 @@ function RecommendationForm() {
                 <div className="form-group">
                     <label className="form-label">Best For</label>
                     <div className="form-input-container">
-                        <select 
+                        <select
                             name="best_for"
                             value={formData.best_for}
                             onChange={handleChange}
@@ -240,12 +244,12 @@ function RecommendationForm() {
                             className="form-select"
                         >
                             <option value="">Select</option>
-                            {BEST_FOR.map((item)=>(
+                            {BEST_FOR.map((item) => (
                                 <option key={item} value={item}>{item}</option>
                             ))}
                         </select>
                         <div className="form-select-icon-wrapper">
-                            <svg className="form-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <FaChevronDown className="form-icon" />
                         </div>
                     </div>
                 </div>
@@ -296,7 +300,7 @@ function RecommendationForm() {
                                 onClick={() => removeActivity(activity)}
                                 className="form-tag-btn"
                             >
-                                <svg className="form-tag-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                <FaTimes className="form-tag-icon" />
                             </button>
                         </span>
                     ))}
@@ -306,7 +310,7 @@ function RecommendationForm() {
             <div className="form-submit-wrapper">
                 <button type="submit" className="form-submit-btn">
                     Get Recommendations
-                    <svg className="form-submit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    <FaRocket className="form-submit-icon" />
                 </button>
             </div>
         </form>

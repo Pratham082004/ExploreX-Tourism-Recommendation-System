@@ -7,7 +7,7 @@ import api from "./api";
  * @returns {Promise<Object>} The API response containing nearby attractions.
  */
 const getNearbyAttractions = async (city) => {
-
+    // Ping the API to find cool places to visit near the selected city
     const response = await api.get(
         `/attractions?city=${encodeURIComponent(city)}`
     );

@@ -8,9 +8,8 @@ import packageService from "../services/packageService";
 import attractionService from "../services/attractionService";
 
 /**
- * The dedicated page for viewing a single travel package's details.
- * Fetches the package data and nearby attractions based on the URL ID,
- * and passes them to the PackageDetails component.
+ * Page component for a single travel package.
+ * Fetches data and nearby attractions by ID, then renders PackageDetails.
  */
 function Package() {
 
@@ -25,11 +24,10 @@ function Package() {
 
     useEffect(() => {
         loadPackage();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id]);
 
     const loadPackage = async () => {
-
+        // Grab all the details for this specific package from the API, plus some nearby spots
         setLoading(true);
 
         try {
@@ -44,8 +42,8 @@ function Package() {
 
             setPackageData(data);
 
-            const firstCity = data.cities_covered 
-                ? data.cities_covered.split(',')[0].trim() 
+            const firstCity = data.cities_covered
+                ? data.cities_covered.split(',')[0].trim()
                 : data.country;
 
             const attractionResponse =
@@ -80,7 +78,7 @@ function Package() {
     }
 
     return (
-        <div className="w-full">
+        <div>
             <PackageDetails
                 packageData={packageData}
                 attractions={attractions}

@@ -19,6 +19,7 @@ const api = axios.create({
  * @returns {any} The unwrapped data or null if not found.
  */
 export const unwrapApiResponse = (response) => {
+    // Safely dig through the response object and pull out the actual data we care about
     if (!response) {
         return null;
     }
