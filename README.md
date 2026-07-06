@@ -1,68 +1,23 @@
-# Tourism Recommendation System
+# ExploreX - Tourism Recommendation System
 
-A comprehensive, full-stack Tourism Recommendation System designed to provide personalized travel experiences, destination suggestions, and trip packages based on user preferences.
+A comprehensive, full-stack Tourism Recommendation System designed to provide personalized travel experiences, destination suggestions, and trip packages based on user preferences.  
 
-## Features
+## 1. What it does
+You input your travel preferences (e.g., budget, duration, activities like scuba diving), and your preferred destination type (Domestic or International). The system queries a database of travel packages and mathematically scores them against your profile, returning the top 5 best fits along with a dynamic map of nearby attractions.
 
-- **Intelligent Recommendations**: Machine learning-based suggestions powered by Scikit-learn.
-- **Interactive UI**: A modern, responsive user interface built with React, Vite, and Vanilla CSS.
-- **Robust Backend**: Fast and scalable RESTful API built with Flask.
-- **Relational Database**: Secure and structured data storage using MySQL and SQLAlchemy.
-- **Containerized**: Fully dockerized environment for seamless deployment and development.
+## 2. Why I chose this project
+Planning a trip can often be overwhelming due to the sheer number of choices and destinations available. I have personally spent hours bouncing between static travel websites trying to find a package that perfectly fits my budget and niche activity interests. I built ExploreX because it is a tool I genuinely needed—an intelligent travel agent that eliminates the guesswork and programmatically connects travelers to the right packages based on their actual constraints.
 
-## Prerequisites
+## 3. What is special about it
+Instead of just using basic SQL `WHERE` clauses (which is what most basic search bars do), ExploreX uses a weighted content-based filtering algorithm powered by Scikit-learn. The system converts your preferences into a mathematical vector and calculates the cosine similarity against every package. It also applies hard mathematical penalties if a package exceeds your budget or time constraints, ensuring you only see truly viable options.
 
-Make sure you have the following installed on your local machine:
-- [Docker & Docker Compose](https://www.docker.com/products/docker-desktop/) (Recommended for easy setup)
-- [Node.js](https://nodejs.org/) (If running the frontend manually)
-- [Python 3.x](https://www.python.org/) (If running the backend manually)
+## Documentation
 
-## Getting Started (Docker)
+I have split the documentation into dedicated files to keep this README clean:
 
-The easiest way to get the application running is by using Docker.
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Pratham082004/Tourism-Recommendation-System.git
-   cd Tourism-Recommendation-System
-   ```
-
-2. **Run Docker Compose:**
-   ```bash
-   docker-compose up --build -d
-   ```
-   *This command will build the frontend, backend, and MySQL database containers and run them in detached mode.*
-
-3. **Access the application:**
-   - **Frontend:** http://localhost:5173
-   - **Backend API:** http://localhost:5000
-   - **Database (MySQL):** `localhost:3306`
-
-Navigate to http://localhost:5173 to view the application.
-
-## Manual Setup
-
-If you prefer to run the system without Docker, follow these steps:
-
-### 1. Database Setup
-Ensure you have a local MySQL instance running. Create a `.env` file in the `backend/` directory by copying `.env.example` and updating the database credentials.
-
-### 2. Backend Setup
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-python app.py
-```
-
-### 3. Frontend Setup
-```bash
-cd frontend
-npm install
-npm run dev
-```
-Navigate to http://localhost:5173 to view the application.
+- **[Architecture Deep-Dive](ARCHITECTURE.md)**: Explains the Flask/React/Scikit-learn infrastructure and the ML Cosine Similarity engine.
+- **[Installation & Setup Guide](INSTALL.md)**: Step-by-step instructions for running this project via Docker (Plug & Play) or Manual setup.
+- **[API Documentation](API_DOCUMENTATION.md)**: A complete list of all RESTful endpoints, expected JSON payloads, and responses.
 
 ## Project Structure
 
@@ -95,7 +50,7 @@ Tourism-Recommendation-System/
 
 ## Tech Stack
 
-Frontend: React (JavaScript dialect)  
+Frontend: React (JavaScript dialect), Vite  
 Backend: Flask (Python web framework for building APIs)  
 Database: MySQL (Relational Database to store our data)  
 Machine Learning: Scikit-learn (To provide intelligent recommendations)  
@@ -120,14 +75,19 @@ Kaggle Dataset : https://www.kaggle.com/datasets/dhrubangtalukdar/top-indian-pla
 Kaggle Dataset : https://www.kaggle.com/datasets/rkiattisak/traveler-trip-data/data  
 Open-Source API : https://dev.opentripmap.org/docs  
 
-## Tourism Recommendation System Screenshots
+## AI Usage Declaration
+
+To be fully transparent, I used AI tools (like ChatGPT/Copilot) to help speed up repetitive tasks in this project:
+- **Data Generation:** I used AI to help format and generate the dummy MySQL data based on the Kaggle datasets, as writing hundreds of rows of SQL inserts by hand is incredibly tedious.  
+
+Everything else React UI, Flask architecture, Scikit-learn cosine similarity logic, SQL database schema, and Docker infrastructure—was built by me.  
+
+## ExploreX-Tourism Recommendation System Screenshots
 
 ### UI Screenshots
 ![Recommendation Form](frontend/project_screenshots/RecommendationForm.png)  
-![Recommendation Form 3](frontend/project_screenshots/RecommendationForm3.png)  
-![Output Page 1](frontend/project_screenshots/OutputPage1.png)  
-![Output Page 2](frontend/project_screenshots/OutputPage2.png)  
-![Output Page 3](frontend/project_screenshots/OutputPage3.png)
+![Output Page 1](frontend/project_screenshots/Output1.png)  
+![Output Page 2](frontend/project_screenshots/Output2.png)  
 ### Database Screenshots
 ![MySQL 1](frontend/project_screenshots/Mysql1.png)  
 ![MySQL 2](frontend/project_screenshots/Mysql2.png)

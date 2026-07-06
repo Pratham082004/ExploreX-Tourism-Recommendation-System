@@ -11,5 +11,4 @@ requests
 pandas
 numpy
 scikit-learn
-joblib
-logging
+joblib

@@ -7,7 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Dependency / build outputs
+# Dependency
 node_modules/
 dist/
 dist-ssr/
@@ -27,10 +27,6 @@ __pycache__/
 .venv/
 venv/
 ENV/
-
-# Secrets (if you add them)
-.env
-.env
 
 # Coverage
 .coverage
