@@ -11,15 +11,7 @@ const api = axios.create({
     }
 });
 
-/**
- * A helper function to extract the inner data from an API response.
- * Safely handles missing data and nested response structures.
- *
- * @param {Object} response - The raw Axios response object.
- * @returns {any} The unwrapped data or null if not found.
- */
 export const unwrapApiResponse = (response) => {
-    // Safely dig through the response object and pull out the actual data we care about
     if (!response) {
         return null;
     }
