@@ -37,7 +37,7 @@ If you want to actively develop the code and see hot-reloads, you'll want to run
 You will need a local MySQL server running on port `3306`.
 - Navigate to the `backend/` folder.
 - Copy `.env.example` to a new file named `.env`.
-- Update the `SQLALCHEMY_DATABASE_URI` to match your local MySQL credentials. (e.g., `mysql+pymysql://root:password@localhost/tourism_db`).
+- Update the database variables in `.env` to match your local MySQL credentials (e.g., `DB_HOST=localhost`, `DB_USER=tourism_user`, `DB_PASSWORD=tourism123`, `DB_NAME=tourism_db`, `DB_PORT=3306`).
 
 ### 2. Backend Setup (Python)
 You need Python 3.9+ installed.
