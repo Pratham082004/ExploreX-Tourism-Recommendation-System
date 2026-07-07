@@ -31,7 +31,7 @@ class OpentripmapService:
         "lakes": "Lake",
         "fountains": "Fountain",
         "monuments_and_memorials": "Monument",
-        "sculptures": "Sculpture",
+        "sculptures": "Sculpture"
     }
 
     @staticmethod
@@ -106,39 +106,4 @@ class OpentripmapService:
             })
 
         return attractions
-
-    @staticmethod
-    def fetch_place_details(xid):
-        """Fetch detailed information for a place."""
-
-        url = f"{OpentripmapService.BASE_URL}/xid/{xid}"
-
-        params = {"apikey": Config.OPENTRIP_API_KEY,}
-
-        logger.debug("OpenTripMap: fetch_place_details xid=%s", xid)
-
-        response = requests.get(url, params=params, timeout=10)
-
-        if response.status_code != 200:
-            logger.error("OpenTripMap fetch_place_details failed status=%s",response.status_code)
-            raise Exception("Unable to fetch place details.")
-
-        data = response.json()
-
-        return {
-            "name": data.get("name"),
-            "category": OpentripmapService._get_category(
-                ",".join(data.get("kinds", []))
-                if isinstance(data.get("kinds"), list)
-                else data.get("kinds", "")
-            ),
-            "description": (
-                data.get("wikipedia_extracts", {}).get("text")
-                or data.get("info", {}).get("descr")
-            ),
-            "image": data.get("preview", {}).get("source"),
-            "address": data.get("address", {}),
-            "wikipedia": data.get("wikipedia"),
-            "latitude": data.get("point", {}).get("lat"),
-            "longitude": data.get("point", {}).get("lon")
-        }
+

@@ -2,7 +2,7 @@
 
 This document outlines how to interact with the ExploreX application once it is up and running.
 
-> [NOTE]
+> [!NOTE]
 > Ensure that you have followed the setup instructions in `INSTALL.md` and that all Docker containers are currently running (`docker compose up`).
 
 ## Accessing the Application

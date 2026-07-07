@@ -42,8 +42,7 @@ Returns a list of package objects, ordered by highest match score.
          "country": "Singapore",
          "created_at": "Sun, 05 Jul 2026 18:55:32 GMT",
          "duration": "6D/5N",
-         "estimated_cost": 95000.0,
-      // ... full package details ...
+         "estimated_cost": 95000.0
     }
   ]
 }
@@ -57,7 +56,7 @@ Returns a list of package objects, ordered by highest match score.
 Fetches a list of all domestic travel packages available in the database.
 
 ### `GET /packages/domestic/<package_id>`
-Fetches the detailed itinerary and stats for a specific domestic package (e.g., `IND-GOA-001`).
+Fetches the detailed itinerary and stats for a specific domestic package (e.g., `GOA001`).
 
 ### `GET /packages/international`
 Fetches a list of all international travel packages.

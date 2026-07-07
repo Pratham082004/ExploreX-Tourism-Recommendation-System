@@ -6,7 +6,7 @@ You have two options to run this project: **The Easy Way (Docker)** or **The Har
 
 ---
 
-## Option 1: The Easy Way (Docker) 🐳
+## Option 1: The Easy Way (Docker) 
 I highly recommend this route. It will spin up the Frontend, Backend, and Database automatically, and even seed the database with the required dummy data.
 
 **Prerequisites:**
@@ -16,7 +16,7 @@ I highly recommend this route. It will spin up the Frontend, Backend, and Databa
 1. Clone the repository:
    ```bash
    git clone https://github.com/Pratham082004/ExploreX-Tourism-Recommendation-System
-   cd Tourism-Recommendation-System
+   cd ExploreX-Tourism-Recommendation-System
    ```
 2. Run the magic command:
    ```bash
@@ -25,11 +25,12 @@ I highly recommend this route. It will spin up the Frontend, Backend, and Databa
 3. **Wait about 30 seconds** for the database to fully initialize and seed the data. 
 4. Open your browser and go to `http://localhost:5173`. You're done!
 
+> [!TIP]
 > **Troubleshooting Note:** If the backend keeps crashing on startup, it usually means Docker has cached an old version of the MySQL database. Run `docker-compose down -v` to wipe the old database volume, then try `docker-compose up` again.
 
 ---
 
-## Option 2: The Hard Way (Manual Setup) 🛠️
+## Option 2: The Hard Way (Manual Setup) 
 If you want to actively develop the code and see hot-reloads, you'll want to run the services locally on your host machine.
 
 ### 1. Database Setup
