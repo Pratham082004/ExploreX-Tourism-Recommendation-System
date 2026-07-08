@@ -2,6 +2,16 @@
 
 **ExploreX** is an intelligent, full-stack Tourism Recommendation System that acts as your 24/7 personal travel agent. Powered by a custom Machine Learning engine (Scikit-learn), a Flask REST API, and a dynamic React frontend, ExploreX mathematically scores and curates the absolute best travel packages tailored exactly to your budget, timeline, and unique interests.
 
+## Table of Contents
+
+- [Documentation](#documentation)
+- [Project Structure](#project-structure)
+- [Tech Stack](#tech-stack)
+- [Referred Sites](#referred-sites)
+- [Dataset and Open-Source APIs Referred](#dataset-and-open-source-apis-referred)
+- [AI Usage Declaration](#ai-usage-declaration)
+- [ExploreX-Tourism Recommendation System Screenshots](#explorex-tourism-recommendation-system-screenshots)
+
 ## Documentation
 
 I have split the documentation into dedicated files to keep this README clean:
