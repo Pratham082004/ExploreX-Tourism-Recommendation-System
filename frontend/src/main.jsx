@@ -11,9 +11,7 @@ import "./styles/global.css";
  * Bootstraps the app, sets up routing, and renders it to the DOM.
  */
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>
 );
