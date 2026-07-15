@@ -199,7 +199,7 @@ function RecommendationForm() {
                             required
                             className="form-select"
                         >
-                            <option value="">Select Your Preferred Hotel Categoroy</option>
+                            <option value="">Select Your Preferred Hotel Category</option>
                             {HOTEL_CATEGORIES.map((hotel) => (
                                 <option key={hotel} value={hotel}>{hotel}</option>
                             ))}

@@ -17,13 +17,17 @@ class Package_Controller:
     @staticmethod
     def get_all_domestic_packages():
         """Retrieve all domestic travel packages."""
-        logger.debug("Fetching all domestic packages")
-        packages = PackageService.get_all_domestic_packages()
-        logger.info("Fetched domestic packages count=%s", len(packages) if packages is not None else 0)
-        return success_response(
-            message="Domestic packages fetched successfully",
-            data=packages,
-        )
+        try:
+            logger.debug("Fetching all domestic packages")
+            packages = PackageService.get_all_domestic_packages()
+            logger.info("Fetched domestic packages count=%s", len(packages) if packages is not None else 0)
+            return success_response(
+                message="Domestic packages fetched successfully",
+                data=packages,
+            )
+        except Exception as e:
+            logger.exception("Error fetching all domestic packages")
+            return error_response(str(e), 500)
 
 
     @staticmethod
@@ -50,25 +54,36 @@ class Package_Controller:
     def get_all_international_packages():
         """Retrieve all international travel packages."""
 
-        packages = PackageService.get_all_international_packages()
-        return success_response(
-            message="International packages fetched successfully",
-            data=packages,
-        )
+        try:
+            logger.debug("Fetching all international packages")
+            packages = PackageService.get_all_international_packages()
+            logger.info("Fetched international packages count=%s", len(packages) if packages is not None else 0)
+            return success_response(
+                message="International packages fetched successfully",
+                data=packages,
+            )
+        except Exception as e:
+            logger.exception("Error fetching all international packages")
+            return error_response(str(e), 500)
 
     @staticmethod
     def get_international_package_by_id(package_id):
         """Retrieve an international package by its ID."""
-        package = PackageService.get_international_package_by_id(package_id)
+        try:
+            logger.debug("Fetching international package by id=%s", package_id)
+            package = PackageService.get_international_package_by_id(package_id)
 
-        if not package:
-            return error_response(
-                message=f"International package with ID {package_id} not found",
-                status_code=404,
+            if not package:
+                return error_response(
+                    message=f"International package with ID {package_id} not found",
+                    status_code=404,
+                )
+            return success_response(
+                message=f"International package with ID {package_id} fetched successfully",
+                data=package,
             )
-        return success_response(
-            message=f"International package with ID {package_id} fetched successfully",
-            data=package,
-        )
+        except Exception as e:
+            logger.exception("Error fetching international package by id=%s", package_id)
+            return error_response(str(e), 500)
 
 
