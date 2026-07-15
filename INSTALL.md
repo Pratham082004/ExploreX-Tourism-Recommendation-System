@@ -23,7 +23,7 @@ I highly recommend this route. It will spin up the Frontend, Backend, and Databa
    docker-compose up  
    ```
 3. **Wait about 30 seconds** for the database to fully initialize and seed the data. 
-4. Open your browser and go to `http://localhost:5173`. You're done!
+4. Open your browser and go to [http://localhost:5173](http://localhost:5173). You're done!
 
 > [!TIP]
 > **Troubleshooting Note:** If the backend keeps crashing on startup, it usually means Docker has cached an old version of the MySQL database. Run `docker-compose down -v` to wipe the old database volume, then try `docker-compose up` again.
@@ -58,7 +58,7 @@ pip install -r requirements.txt
 # Start the Flask server
 python app.py
 ```
-*The backend API will now be running on `http://localhost:5000`.*
+*The backend API will now be running on `http://localhost:8000`.*
 
 ### 3. Frontend Setup (React)
 You need Node.js installed. Open a **new** terminal window:
@@ -72,3 +72,25 @@ npm install
 npm run dev
 ```
 *The frontend will now be running on `http://localhost:5173`.*
+
+---
+
+## Troubleshooting
+
+Here are some common issues you might run into and how to fix them:
+
+**1. Port Conflicts (Address already in use)**
+*   **Symptom**: Docker or your manual server fails to start with an error like `bind: address already in use`.
+*   **Solution**: This means another application on your computer is using one of the required ports (`8000` for backend, `5173` for frontend, or `3306` for MySQL). You need to stop the conflicting service, or change the mapped ports in `docker-compose.yml` (for Docker) or `.env` (for manual setup). Ensure to rebuild using `docker-compose up -d --build` if modifying the docker ports.
+
+**2. Docker Daemon Not Running**
+*   **Symptom**: Running `docker-compose up` gives an error like `error during connect: ... docker daemon is not running`.
+*   **Solution**: Make sure you have opened the Docker Desktop application on your machine and wait for the engine to show as "Running" before executing the command.
+
+**3. Database Connection Failed (Manual Setup)**
+*   **Symptom**: The backend throws a `Can't connect to MySQL server on 'localhost'` error.
+*   **Solution**: Ensure your local MySQL server is actually running. Double-check that the credentials (`DB_USER`, `DB_PASSWORD`, etc.) in your `backend/.env` file match your local MySQL configuration perfectly.
+
+**4. Missing Dependencies (Manual Setup)**
+*   **Symptom**: `ModuleNotFoundError: No module named 'flask'` (or similar).
+*   **Solution**: Make sure you have activated your virtual environment (`venv\Scripts\activate` on Windows or `source venv/bin/activate` on Mac/Linux) and ran `pip install -r requirements.txt`.

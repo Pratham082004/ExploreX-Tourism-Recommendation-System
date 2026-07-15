@@ -14,3 +14,9 @@ I built ExploreX because it is the exact tool I genuinely wished existed when I 
 Most standard search bars on travel websites rely on rigid, basic database queries (like simple SQL `WHERE` clauses). If you don't type the exact right keyword, you miss out on great options. 
 
 ExploreX takes a much smarter approach. It uses a custom-built, weighted content-based filtering algorithm powered by Machine Learning (specifically, Scikit-learn). When you input your preferences, the system actually converts your desires into a mathematical vector. It then calculates the "cosine similarity" against every single package in the database to see how conceptually close they are to your dream trip. To make sure the recommendations are actually practical, it applies hard mathematical penalties to any package that exceeds your budget or time constraints. This guarantees that you are only ever shown truly viable, highly personalised options.
+
+### Key Features
+* **Machine Learning Engine:** Uses Scikit-learn and Cosine Similarity to find the perfect conceptual match rather than relying on rigid keyword searches.
+* **Dynamic Local Attractions:** Integrates with the OpenTripMap API to automatically pull and display interesting tourist attractions near your recommended destinations.
+* **Strict Constraint Penalties:** Mathematically penalizes and filters out packages that break your specified budget or travel duration, ensuring realistic results.
+* **Modern, Decoupled Architecture:** Built with a lightning-fast React UI, a robust Python Flask API, and fully containerized with Docker for seamless deployment.

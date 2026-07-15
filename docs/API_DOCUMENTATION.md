@@ -72,7 +72,7 @@ Fetches the detailed itinerary and stats for a specific international package.
 I integrated the OpenTripMap API to dynamically find cool places to visit near a selected city.
 
 **Query Parameters:**
-- `city` (string, required) - The name of the city (e.g., `?city=Paris`).
+- `city` (string, required) - The name of the city (e.g., `?city=Japan`).
 
 **Response (200 OK):**
 ```json

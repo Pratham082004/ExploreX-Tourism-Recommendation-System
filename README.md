@@ -67,6 +67,12 @@ Database: MySQL (Relational Database to store our data)
 Machine Learning: Scikit-learn (To provide intelligent recommendations)  
 Containerization Platform: Docker (To pack an application and all of its dependencies into a single unit called a container and run on any system that has Docker installed)  
 
+## System Compatibility & Testing
+
+As per the final submission requirements, this project has been rigorously tested across multiple operating systems to ensure cross-platform compatibility:
+- **Windows**: Fully tested and verified.
+- **macOS**: Fully tested and verified (Note: We specifically resolved a common macOS Monterey port 5000 conflict by remapping our Docker ports to 8000, ensuring a seamless experience for Mac users).
+
 ## Referred Sites
 
 https://react.dev/  

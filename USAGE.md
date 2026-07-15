@@ -15,6 +15,7 @@ This document outlines how to interact with the ExploreX application once it is 
 ### Step 1: Provide Your Preferences
 On the main landing page, you will be presented with a **Recommendation Form**. Fill in the following details:
 * **Destination Type:** Choose whether you want a `Domestic` or `International` trip.
+* **Destination**: Choose your desired country(international) or domestic(city).
 * **Budget:** Input your budget.
 * **Duration:** Enter how many days you plan to travel.
 * **Activities/Interests:** Select or enter your preferred activities (e.g., scuba diving, hiking, historical tours).
@@ -29,3 +30,14 @@ Once your preferences are entered, click the **Submit** or **Get Recommendations
 The system will return your **Top 5 Best Fit Travel Packages**. For each package, you will see:
 * **Package Details:** Overview of the destination, total cost, and duration.
 * **Nearby Attractions:** A list of attractions you can visit near the recommended destination.
+
+### Example: International Trip
+
+To see how the recommendation engine works for international destinations, you might enter the following preferences:
+* **Destination Type:** `International`
+* **Destination**: Japan
+* **Budget:** 200000 (INR)
+* **Duration:** 8 (Days)
+* **Activities/Interests:** `Culture`, `Food Tour`, `Sightseeing`
+
+The system will process these inputs, calculate the cosine similarity, apply your budget/duration constraints, and return top international packages (e.g., to Bali, Maldives, or Phuket) that best match your profile.
