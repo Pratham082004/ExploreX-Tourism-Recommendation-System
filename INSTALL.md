@@ -19,11 +19,17 @@ I highly recommend this route. It will spin up the Frontend, Backend, and Databa
    cd ExploreX-Tourism-Recommendation-System
    ```
 2. Run the command:
+   For the First run 
    ```bash
-   docker-compose up  
+   docker compose up -d --build
    ```
-3. **Wait about 30 seconds** for the database to fully initialize and seed the data. 
-4. Open your browser and go to [http://localhost:5173](http://localhost:5173). You're done!
+3. For subsequent normal startups, you can run:
+   ```bash
+   docker compose up
+   ```
+   which will start the containers in the background.
+4. **Wait about 30 seconds** for the database to fully initialize and seed the data. 
+5. Open your browser and go to [http://localhost:5173](http://localhost:5173). You're done!
 
 > [!TIP]
 > **Troubleshooting Note:** If the backend keeps crashing on startup, it usually means Docker has cached an old version of the MySQL database. Run `docker-compose down -v` to wipe the old database volume, then try `docker-compose up` again.
